@@ -1,15 +1,14 @@
 import { JSX, ReactNode } from "react";
-import "./index.module.css";
+import "./index.css";
+import WebsiteHeader from "@/components/WebsiteHeader";
 
 export default function RootLayout({
     children
 }: RootLayoutProps ): JSX.Element {
     return (
         <html lang="en">
-            <head>
-                <title>Admin Panel | TypeCrafters HQ</title>
-            </head>
             <body>
+                <WebsiteHeader />
                 {children}
             </body>
         </html>
