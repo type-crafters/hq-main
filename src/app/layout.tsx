@@ -1,6 +1,8 @@
 import { JSX, ReactNode } from "react";
 import "./index.css";
-import WebsiteHeader from "@/components/WebsiteHeader";
+import "bootstrap-icons/font/bootstrap-icons.min.css";
+import WebsiteHeader from "@components/WebsiteHeader";
+import WebsiteFooter from "@components/WebsiteFooter";
 
 export default function RootLayout({
     children
@@ -10,6 +12,8 @@ export default function RootLayout({
             <body>
                 <WebsiteHeader />
                 {children}
+                <div className="p-4"></div>
+                <WebsiteFooter />
             </body>
         </html>
     );
