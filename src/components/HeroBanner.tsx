@@ -2,7 +2,7 @@ import { JSX } from "react";
 
 export default function HeroBanner(): JSX.Element {
     return (
-        <section className="aspect-[12/5] bg-neutral-800">
+        <section className="w-full aspect-[12/5] h-auto bg-neutral-800">
 
         </section>
     );

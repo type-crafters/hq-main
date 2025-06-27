@@ -1,7 +1,7 @@
-import styles from "./blog.module.css";
 import HeroBanner from "@components/HeroBanner";
+import { JSX } from "react";
 
-export default function BlogView() {
+export default function ContactView(): JSX.Element {
     return (
         <>
             <HeroBanner/>
