@@ -1,16 +1,19 @@
 import { JSX, ReactNode } from "react";
-import "./index.module.css";
+import "./index.css";
+import "bootstrap-icons/font/bootstrap-icons.min.css";
+import WebsiteHeader from "@components/WebsiteHeader";
+import WebsiteFooter from "@components/WebsiteFooter";
 
 export default function RootLayout({
     children
 }: RootLayoutProps ): JSX.Element {
     return (
         <html lang="en">
-            <head>
-                <title>Admin Panel | TypeCrafters HQ</title>
-            </head>
             <body>
+                <WebsiteHeader />
                 {children}
+                <div className="p-4"></div>
+                <WebsiteFooter />
             </body>
         </html>
     );

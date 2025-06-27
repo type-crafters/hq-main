@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('/font/Outfit-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+html,
+body {
+    background-color: black;
+    color: var(--color-neutral-200);
+    font-family: 'Outfit', Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
