@@ -12,7 +12,6 @@ export default function RootLayout({
             <body>
                 <WebsiteHeader />
                 {children}
-                <div className="p-4"></div>
                 <WebsiteFooter />
             </body>
         </html>
