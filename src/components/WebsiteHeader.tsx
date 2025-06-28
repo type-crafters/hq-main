@@ -8,7 +8,7 @@ export default function WebsiteHeader(): JSX.Element {
 
     return (
         <header className="flex items-center px-4 lg:px-8 gap-12 py-1 border-b border-neutral-200">
-            <Link href="/" id="page-title" className="flex items-center gap-4 font-semibold text-lg md:text-xl lg:text-2xl">
+            <Link href="/" id="page-title" className="px-1 flex items-center gap-4 font-semibold text-lg md:text-xl lg:text-2xl">
                 <i className="bi bi-tools flex-center"></i>
                 <h1>TypeCrafters</h1>
             </Link>
@@ -20,7 +20,7 @@ export default function WebsiteHeader(): JSX.Element {
             <nav
                 id="header-navbar"
                 className={`
-                    flex-1 p-4 lg:p-0 min-w-50 flex fixed z-50 
+                    flex-1 p-4 lg:p-0 lg:px-1 min-w-50 flex fixed z-50 
                     bg-black top-0 right-0  lg:static gap-6 
                     lg:gap-0 flex-col lg:flex-row justify-start 
                     lg:justify-between items-center h-screen 
