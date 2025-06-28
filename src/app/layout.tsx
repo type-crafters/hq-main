@@ -12,7 +12,7 @@ export default function RootLayout({
             <body>
                 <WebsiteHeader />
                 {children}
-                <WebsiteFooter />
+                {/* <WebsiteFooter /> */}
             </body>
         </html>
     );

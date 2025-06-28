@@ -7,6 +7,7 @@
     font-style: normal;
 }
 
+
 html,
 body {
     background-color: black;
@@ -14,6 +15,7 @@ body {
     font-family: 'Outfit', Arial, Helvetica, sans-serif;
     font-size: 20px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .flex-center {
