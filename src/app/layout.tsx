@@ -14,7 +14,7 @@ export default function RootLayout({
             </head>
             <body>
                 <WebsiteHeader />
-                {children}
+                { children }
                 <WebsiteFooter />
             </body>
         </html>

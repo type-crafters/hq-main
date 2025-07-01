@@ -2,12 +2,12 @@ import { JSX } from "react";
 
 export default function WebsiteFooter(): JSX.Element {
     return (
-        <footer className="py-8 border-t border-neutral-200 flex flex-col items-center gap-6">
+        <footer className="mt-8 py-8 border-t border-neutral-200 flex flex-col items-center gap-6">
             <div className="flex w-full justify-center items-center">
                 <nav id="footer-links" className="flex flex-col sm:flex-row items-center gap-4">
-                    <a href="/home">Home</a>
                     <a href="/games">Games</a>
                     <a href="/blog">Blog</a>
+                    <a href="/shop">Shop</a>
                     <a href="/team">Our team</a>
                     <a href="/contact">Contact</a>
                 </nav>
@@ -32,4 +32,4 @@ export default function WebsiteFooter(): JSX.Element {
             </div>
         </footer>
     );
-}
+} 

@@ -7,7 +7,7 @@ export default function WebsiteHeader(): JSX.Element {
     const [displayNavbar, setDisplayNavbar] = useState<boolean>(false);
 
     return (
-        <header className="flex items-center px-4 lg:px-8 gap-12 py-1 border-b border-neutral-200">
+        <header className="sticky top-0 z-40 bg-black flex items-center px-4 lg:px-8 gap-12 py-2 border-b border-neutral-200">
             <Link href="/" id="page-title" className="px-1 flex items-center gap-4 font-semibold text-lg md:text-xl lg:text-2xl">
                 <i className="bi bi-tools flex-center"></i>
                 <h1>TypeCrafters</h1>
@@ -35,19 +35,19 @@ export default function WebsiteHeader(): JSX.Element {
                     </button>
                 </div>
                 <ul id="header-links" className="flex flex-col lg:flex-row items-center gap-4">
-                    <li className="py-2 border-b-2 border-transparent hover:border-neutral-200 duration-200">
+                    <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
                         <Link href="/games">Games</Link>
                     </li>
-                    <li className="py-2 border-b-2 border-transparent hover:border-neutral-200 duration-200">
+                    <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
                         <Link href="/blog">Blog</Link>
                     </li>
-                    <li className="py-2 border-b-2 border-transparent hover:border-neutral-200 duration-200">
+                    <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
                         <Link href="/blog">Shop</Link>
                     </li>
-                    <li className="py-2 border-b-2 border-transparent hover:border-neutral-200 duration-200">
+                    <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
                         <Link href="/team">Our Team</Link>
                     </li>
-                    <li className="py-2 border-b-2 border-transparent hover:border-neutral-200 duration-200">
+                    <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
                         <Link href="/contact">Contact us</Link>
                     </li>
                 </ul>
