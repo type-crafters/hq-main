@@ -16,7 +16,7 @@ export default function ContactUsInfo({
     }
     return (
 
-        <button type="button" onClick={copyValue} value={value} className="py-4 relative flex gap-6 items-center w-full cursor-pointer">
+        <button type="button" onClick={copyValue} value={value} className="py-2 relative flex gap-6 items-center w-full cursor-pointer">
             {copied &&
                 <div className={`px-2 text-base bg-emerald-600 rounded absolute top-0 right-0 ${copied ? "fade-out" : ""}`}>&#10004; Copied!</div>
             }

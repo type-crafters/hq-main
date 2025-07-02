@@ -6,7 +6,9 @@ import { JSX } from "react";
 export default function ContactView(): JSX.Element {
     return (
         <>
-            <HeroBanner backgroundImage="/img/gamers-engaging.png" text="get in touch" />
+            <HeroBanner backgroundImage="/img/gamers-engaging.png">
+                <h1 className="w-full text-6xl uppercase font-bold text-center lg:text-left">Get in touch</h1>
+            </HeroBanner>
             <main className="contain flex flex-col justify-start gap-6 p-4">
                 <p>
                     We'd love to hear from you. Whether you have a question, feedback,
@@ -19,7 +21,7 @@ export default function ContactView(): JSX.Element {
                 <p>
                     You can also reach us directly via phone or email, or through social media
                 </p>
-                <section className="w-full max-w-xl">
+                <section className="w-full max-w-xl flex flex-col gap-2">
                     <ContactUsInfo
                         bi="bi-envelope-fill"
                         name="Email"

@@ -2,6 +2,7 @@
 
 import { JSX, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import siteConfig from "@/lib/site.config";
 
 export default function WebsiteHeader(): JSX.Element {
     const [displayNavbar, setDisplayNavbar] = useState<boolean>(false);
@@ -10,10 +11,10 @@ export default function WebsiteHeader(): JSX.Element {
         <header className="sticky top-0 z-40 bg-black flex items-center px-4 lg:px-8 gap-12 py-2 border-b border-neutral-200">
             <Link href="/" id="page-title" className="px-1 flex items-center gap-4 font-semibold text-lg md:text-xl lg:text-2xl">
                 <i className="bi bi-tools flex-center"></i>
-                <h1>TypeCrafters</h1>
+                <span>TypeCrafters</span>
             </Link>
             <div className="flex-1 flex lg:hidden justify-end items-center">
-                <button className="p-1" onClick={() => setDisplayNavbar(true)}>
+                <button className="p-1" aria-label="Open navigation menu" onClick={() => setDisplayNavbar(true)}>
                     <i className="bi bi-list text-xl flex-center"></i>
                 </button>
             </div>
@@ -28,13 +29,14 @@ export default function WebsiteHeader(): JSX.Element {
                     duration-200 ease-in-out lg:translate-x-0
                     ${displayNavbar ? "translate-x-0" : "translate-x-full"} 
                 `}
+                aria-hidden={!displayNavbar}
             >
                 <div className="flex lg:hidden w-full items-center justify-end">
-                    <button className="p-1" onClick={() => setDisplayNavbar(false)}>
+                    <button className="p-1" aria-label="Close navigation menu" onClick={() => setDisplayNavbar(false)}>
                         <i className="bi bi-x-lg text-xl flex-center"></i>
                     </button>
                 </div>
-                <ul id="header-links" className="flex flex-col lg:flex-row items-center gap-4">
+                <menu id="header-links" className="flex flex-col lg:flex-row items-center gap-4">
                     <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
                         <Link href="/games">Games</Link>
                     </li>
@@ -42,7 +44,7 @@ export default function WebsiteHeader(): JSX.Element {
                         <Link href="/blog">Blog</Link>
                     </li>
                     <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
-                        <Link href="/blog">Shop</Link>
+                        <Link href="/shop">Shop</Link>
                     </li>
                     <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
                         <Link href="/team">Our Team</Link>
@@ -50,24 +52,24 @@ export default function WebsiteHeader(): JSX.Element {
                     <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
                         <Link href="/contact">Contact us</Link>
                     </li>
-                </ul>
-                <ul id="header-socials" className="flex flex-col lg:flex-row items-center gap-8">
+                </menu>
+                <menu id="header-socials" className="flex flex-col lg:flex-row items-center gap-8">
                     <li>
-                        <a href="#">
+                        <a href={siteConfig.links.instagram} target="_blank">
                             <i className="bi bi-instagram text-lg flex-center"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href={siteConfig.links.twitter} target="_blank">
                             <i className="bi bi-twitter-x text-lg flex-center"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href={siteConfig.links.youtube} target="_blank">
                             <i className="bi bi-youtube text-lg flex-center"></i>
                         </a>
                     </li>
-                </ul>
+                </menu>
             </nav>
         </header>
     );

@@ -7,7 +7,6 @@
     font-style: normal;
 }
 
-
 html,
 body {
     background-color: black;
@@ -40,18 +39,15 @@ body {
 @media (min-width: 1280px) { .contain { max-width: 1280px; } }
 @media (min-width: 1536px) { .contain { max-width: 1536px; } }
 
-
 *,
 *::before,
 **::after {
     box-sizing: border-box;
 }
 
-
 .fade-out {
     animation: fade-out 1000ms linear 4000ms 1 normal forwards;
 }
-
 
 @keyframes fade-out {
     from {

@@ -1,8 +1,8 @@
-import { JSX } from "react";
+import { JSX, ReactNode } from "react";
 
 export default function HeroBanner({
     backgroundImage,
-    text
+    children
 }: HeroBannerProps): JSX.Element {
     return (
         <section
@@ -11,9 +11,7 @@ export default function HeroBanner({
         >
             <div className="w-full h-full backdrop-blur-[1px] backdrop-brightness-[95%] bg-black/10">
                 <div className="contain h-full py-12 flex items-end">
-                    <h2 className="w-full text-6xl uppercase font-bold text-center lg:text-left">
-                        { text }
-                    </h2>
+                    {children}
                 </div>
             </div>
         </section>
@@ -22,5 +20,5 @@ export default function HeroBanner({
 
 interface HeroBannerProps {
     backgroundImage: string;
-    text: string;
+    children?: ReactNode;
 }
