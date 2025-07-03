@@ -1,6 +1,5 @@
 import BlogPost from "@/components/BlogPost";
 import SearchArticles from "@/components/SearchArticles";
-import articleList from "@/lib/articles";
 import { JSX, useState } from "react";
 
 export default function BlogView(): JSX.Element {

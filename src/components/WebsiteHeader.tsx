@@ -1,6 +1,6 @@
 "use client";
 
-import { JSX, useEffect, useRef, useState } from "react";
+import { JSX, useState } from "react";
 import Link from "next/link";
 import siteConfig from "@/lib/site.config";
 
@@ -11,7 +11,7 @@ export default function WebsiteHeader(): JSX.Element {
         <header className="sticky top-0 z-40 bg-black flex items-center px-4 lg:px-8 gap-12 py-2 border-b border-neutral-200">
             <Link href="/" id="page-title" className="px-1 flex items-center gap-4 font-semibold text-lg md:text-xl lg:text-2xl">
                 <i className="bi bi-tools flex-center"></i>
-                <span>TypeCrafters</span>
+                <span>{siteConfig.name}</span>
             </Link>
             <div className="flex-1 flex lg:hidden justify-end items-center">
                 <button className="p-1" aria-label="Open navigation menu" onClick={() => setDisplayNavbar(true)}>
