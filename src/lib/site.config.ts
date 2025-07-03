@@ -5,6 +5,9 @@ const siteConfig = {
         instagram: "https://www.instagram.com/type_crafters/",
         youtube: "https://www.youtube.com/channel/UCmTWODP9hAponw_A9kCEaBw",
         discord: "https://discord.gg/ZVbsqv5"
+    },
+    blog: {
+        paginationLimit: 3
     }
 }
 

@@ -1,9 +1,11 @@
 import BlogPost from "@/components/BlogPost";
+import BlogPostList from "@/components/BlogPostList";
 import SearchArticles from "@/components/SearchArticles";
+import siteConfig from "@/lib/site.config";
 import { JSX, useState } from "react";
 
-export default function BlogView(): JSX.Element {
 
+export default function BlogView(): JSX.Element {
     return (
         <>
             <main className="contain flex flex-col justify-start gap-6 p-4">
@@ -20,14 +22,7 @@ export default function BlogView(): JSX.Element {
                     <BlogPost />
                 </section>
                 <h2 className="text-2xl font-semibold">Latest Posts</h2>
-                <section id="article-grid" className="grid w-full gap-y-8">
-                    <BlogPost horizontal/>
-                    <BlogPost horizontal/>
-                    <BlogPost horizontal/>
-                    <BlogPost horizontal/>
-                    <BlogPost horizontal/>
-                    <BlogPost horizontal/> 
-                </section>
+                <BlogPostList />
             </main>
         </>
     );

@@ -12,7 +12,7 @@ export default function BlogPost({
     return (
         <Link
             href={`/blog/${id}`}
-            className={`w-full flex flex-col  justify-between px-1 py-2 outline outline-transparent hover:outline-neutral-600 duration-200 rounded ${horizontal ? "md:flex-row-reverse gap-4" : "gap-2"}`}
+            className={`w-full flex flex-col overflow-hidden justify-between px-1 py-2 scale-100 hover:scale-102 duration-200 rounded ${horizontal ? "md:flex-row-reverse gap-4" : "gap-2"}`}
         >
             <div
                 className="min-h-40 aspect-video w-auto rounded bg-neutral-800 bg-cover bg-center bg-no-repeat"
