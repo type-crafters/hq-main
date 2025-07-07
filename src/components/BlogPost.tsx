@@ -1,35 +1,52 @@
-import Link from "next/link";
-import { JSX } from "react";
+"use client";
 
-export default function BlogPost({
-    id="#",
-    thumbnail="/img/developers-working.png",
-    title = "Featured article",
-    content = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat numquam nam sed mollitia quos. Sapiente ad neque excepturi expedita quasi libero inventore maiores.",
-    horizontal = false
-}: BlogPostProps): JSX.Element {
+import { parseMarkdown } from "@/lib/renderer";
+import { IBlogPost } from "@/lib/types";
+import { toReadableDate } from "@/lib/utils";
+import { JSX, useEffect, useState } from "react";
+
+interface NavLink {
+    title: string;
+    href: string;
+}
+
+export default function BlogPost({ post }: BlogPostProps): JSX.Element {
+    const [navlinks, setNavLinks] = useState<NavLink[]>([]);
+
+    useEffect(() => {
+        const navLinks = Array.from(document.getElementsByClassName("navigate-h-2")).map((element) => ({
+            title: element.innerHTML,
+            href: `#${element.id}`
+        }));
+        setNavLinks(navLinks);
+    }, []);
+
+    useEffect(() => console.log(navlinks), [navlinks]);
 
     return (
-        <Link
-            href={`/blog/${id}`}
-            className={`w-full flex flex-col overflow-hidden justify-between px-1 py-2 scale-100 hover:scale-102 duration-200 rounded ${horizontal ? "md:flex-row-reverse gap-4" : "gap-2"}`}
+        <div
+            className="grid grid-cols-[1fr_3fr] xl:grid-cols-[1fr_3fr_1fr] gap-x-4"
         >
-            <div
-                className="min-h-40 aspect-video w-auto rounded bg-neutral-800 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url('${thumbnail}')` }}
-            ></div>
-            <div className="flex flex-col gap-2 flex-1">
-                <h3 className="text-xl">{ title }</h3>
-                <p className="text-neutral-400 line-clamp-3 max-w-2xl">{ content }</p>
-            </div>
-        </Link>
+            <aside className="w-full bg-neutral-800">
+                <nav className="flex gap-6">
+                </nav>
+            </aside>
+            <main className="w-full flex flex-col justify-center gap-4 my-6">
+                <h1 className="text-4xl font-semibold">{post.title}</h1>
+                <div className="w-full flex items-center text-neutral-400">
+                    <span id="date" className="flex-1">{toReadableDate(post.creationDate)}</span>
+                    <span id="author" className="flex-1">Author: {post.author}</span>
+                </div>
+                <section
+                    id="contents"
+                    className="flex flex-col gap-4"
+                    dangerouslySetInnerHTML={{ __html: parseMarkdown(post.content || "") }}></section>
+            </main>
+        </div>
+
     );
 }
 
 interface BlogPostProps {
-    id?: string;
-    thumbnail?: string;
-    title?: string;
-    content?: string;
-    horizontal?: boolean;
+    post: IBlogPost
 }

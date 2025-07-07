@@ -1,54 +1,33 @@
 "use client";
 
-import { JSX, useMemo, useState } from "react";
-import BlogPost from "./BlogPost";
+import { JSX, useEffect, useMemo, useState } from "react";
+import BlogPostItem from "./BlogPostItem";
 import siteConfig from "@/lib/site.config";
+import { IBlogPost } from "@/lib/types";
+import path from "path";
+import BlogPostItemSkeleton from "./BlogPostItemSkeleton";
 
 export default function BlogPostList(): JSX.Element {
-    const blogposts = [
-        {
-            id: "1",
-            thumbnail: "/img/developers-working.png",
-            title: "Article 1",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat numquam nam sed mollitia quos. Sapiente ad neque excepturi expedita quasi libero inventore maiores."
-        },
-        {
-            id: "2",
-            thumbnail: "/img/developers-working.png",
-            title: "Article 2",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat numquam nam sed mollitia quos. Sapiente ad neque excepturi expedita quasi libero inventore maiores."
-        },
-        {
-            id: "3",
-            thumbnail: "/img/developers-working.png",
-            title: "Article 3",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat numquam nam sed mollitia quos. Sapiente ad neque excepturi expedita quasi libero inventore maiores."
-        },
-        {
-            id: "4",
-            thumbnail: "/img/developers-working.png",
-            title: "Article 4",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat numquam nam sed mollitia quos. Sapiente ad neque excepturi expedita quasi libero inventore maiores."
-        },
-        {
-            id: "5",
-            thumbnail: "/img/developers-working.png",
-            title: "Article 5",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat numquam nam sed mollitia quos. Sapiente ad neque excepturi expedita quasi libero inventore maiores."
-        },
-        {
-            id: "6",
-            thumbnail: "/img/developers-working.png",
-            title: "Article 6",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat numquam nam sed mollitia quos. Sapiente ad neque excepturi expedita quasi libero inventore maiores."
-        },
-        {
-            id: "7",
-            thumbnail: "/img/developers-working.png",
-            title: "Article 7",
-            content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat numquam nam sed mollitia quos. Sapiente ad neque excepturi expedita quasi libero inventore maiores."
-        }
-    ];
+    const [loading, setLoading] = useState<boolean>(true);
+    const [blogposts, setBlogPosts] = useState<IBlogPost[]>([]);
+
+    useEffect(() => {
+        (async () => {
+            const url = new URL(process.env.NEXT_PUBLIC_API_URL!);
+            url.pathname = path.join(url.pathname, "blog", "posts");
+
+            const response = await fetch(url, {
+                method: "GET"
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data)
+                setBlogPosts(data);
+            }
+            setLoading(false);
+        })();
+    }, [])
 
     const [current, setCurrent] = useState(1);
 
@@ -69,9 +48,32 @@ export default function BlogPostList(): JSX.Element {
     return (
         <>
             <section id="article-grid" className="grid w-full gap-y-8 duration-300">
-                {postpage.map((post) => (
-                    <BlogPost key={post.id} id={post.id} thumbnail={post.thumbnail} title={post.title} content={post.content} horizontal />
-                ))}
+                {loading ? (
+                    <>
+                        <BlogPostItemSkeleton horizontal />
+                        <BlogPostItemSkeleton horizontal />
+                        <BlogPostItemSkeleton horizontal />
+                    </>
+                ) : (
+                    postpage.length > 0 ? (
+                        <>
+                            {postpage.map((post) => (
+                                <BlogPostItem
+                                    key={post.id}
+                                    id={post.id}
+                                    thumbnail={post.thumbnail}
+                                    title={post.title}
+                                    preview={post.preview}
+                                    horizontal
+                                />
+                            ))}
+                        </>
+                    ) : (
+                        <>
+                            204 NO CONTENT
+                        </>
+                    )
+                )}
             </section>
             <section id="pagination-controls" className="w-full">
                 <div className="flex w-full justify-center items-center gap-6">

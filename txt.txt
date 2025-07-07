@@ -1,0 +1,10 @@
+    table({ header, rows }: Tokens.Table): string {
+        return `<table class="table-auto border-collapse border border-neutral-600">
+            <thead>
+            ${renderer.tablerow({ text: header.map((th) => renderer.tablecell(th)).join("") })}
+            </thead>
+            <tbody>
+            ${rows.map((row) => renderer.tablerow({ text: row.map((td) => renderer.tablecell(td)).join("") })) }
+            </tbody>
+        </table>`
+    },

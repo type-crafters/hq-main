@@ -6,7 +6,7 @@ export default function HeroBanner({
 }: HeroBannerProps): JSX.Element {
     return (
         <section
-            className="w-full aspect-[12/5] h-auto bg-cover bg-center bg-no-repeat"
+            className="w-full aspect-[3/4] sm:aspect-[9/5] lg:aspect-[12/5] h-auto bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('" + backgroundImage + "')" }}
         >
             <div className="w-full h-full backdrop-blur-[1px] backdrop-brightness-[95%] bg-black/10">
