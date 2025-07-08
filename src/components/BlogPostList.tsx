@@ -13,19 +13,21 @@ export default function BlogPostList(): JSX.Element {
 
     useEffect(() => {
         (async () => {
-            const url = new URL(process.env.NEXT_PUBLIC_API_URL!);
-            url.pathname = path.join(url.pathname, "blog", "posts");
+            try {
+                const url = new URL(process.env.NEXT_PUBLIC_API_URL!);
+                url.pathname = path.join(url.pathname, "blog", "posts");
+                const response = await fetch(url, {
+                    method: "GET"
+                });
 
-            const response = await fetch(url, {
-                method: "GET"
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                console.log(data)
-                setBlogPosts(data);
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log(data)
+                    setBlogPosts(data);
+                }
+            } finally {
+                setLoading(false);
             }
-            setLoading(false);
         })();
     }, [])
 
@@ -69,9 +71,10 @@ export default function BlogPostList(): JSX.Element {
                             ))}
                         </>
                     ) : (
-                        <>
-                            204 NO CONTENT
-                        </>
+                        <div>
+                            <h2 className="text-xl font-medium">Looks like there are no blog posts yet...</h2>
+                            <p className="text-neutral-400">New stories and updates will appear here once they're published.</p>
+                        </div>
                     )
                 )}
             </section>
