@@ -1,10 +1,15 @@
+import { Metadata } from "next";
 import { JSX, ReactNode } from "react";
-import styles from "./blog.module.css";
+
+export const metadata: Metadata = {
+    title: "Blog | TypeCrafters HQ",
+    description: "Read through our latest articles and progress reports."
+}
 
 export default function BlogLayout({ children }: BlogLayoutProps): JSX.Element {
     return (
         <>
-            { children }
+            {children}
         </>
     );
 }

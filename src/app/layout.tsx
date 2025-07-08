@@ -9,9 +9,12 @@ export default function RootLayout({
 }: RootLayoutProps ): JSX.Element {
     return (
         <html lang="en">
+            <head>
+                <link rel="shortcut icon" href="/img/favicon.svg" type="image/svg+xml" />
+            </head>
             <body>
                 <WebsiteHeader />
-                {children}
+                { children }
                 <WebsiteFooter />
             </body>
         </html>
