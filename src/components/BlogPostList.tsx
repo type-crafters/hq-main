@@ -22,7 +22,6 @@ export default function BlogPostList(): JSX.Element {
 
                 if (response.ok) {
                     const data = await response.json();
-                    console.log(data)
                     setBlogPosts(data);
                 }
             } finally {

@@ -4,8 +4,8 @@ import DOMPurify from "dompurify";
 // Custom renderer using marked v5+ extension format
 const renderer = {
     heading({ depth, tokens }: Tokens.Heading): string {
-        const id = crypto.randomUUID();
         const text = tokens.map(token => token.raw).join("");
+        const id = text.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-");
         const fonts: Record<number, string> = {
             1: "text-4xl font-semibold",
             2: "text-3xl font-semibold",
@@ -15,7 +15,7 @@ const renderer = {
             6: "text-lg underline"
         };
 
-        return `<h${depth} class="${fonts[depth]} navigate-h-${depth}" id=${id}>${marked.parse.parseInline(text)}</h${depth}>`;
+        return `<h${depth} class="${fonts[depth]} navigate-h-${depth} scroll-mt-16" id=${id}>${marked.parse.parseInline(text)}</h${depth}>`;
     },
 
     link({ href, title, tokens }: Tokens.Link): string {
@@ -35,7 +35,7 @@ const renderer = {
                 <span>Copy</span>
             </button>
         </div>
-        <pre class="bg-neutral-800 p-1"><code class="language-${lang} text-[16px] font-['Cascadia_Code',_Consolas,_monospace]" id=${id}>${text}</code></pre>
+        <pre class="bg-neutral-800 p-1 overflow-x-auto"><code class="language-${lang} text-[16px] font-['Cascadia_Code',_Consolas,_monospace]" id=${id}>${text}</code></pre>
     </div>`;
     },
 
@@ -56,23 +56,26 @@ const renderer = {
     },
 
     table({ header, rows }: Tokens.Table): string {
-        return `<table class="table-auto border-collapse border border-neutral-600">
+        return `<div class="overflow-x-auto py-2">
+        <table class="table-auto border-collapse border border-neutral-600">
             <thead>
             ${renderer.tablerow({ text: header.map((th) => renderer.tablecell(th)).join("") })}
             </thead>
             <tbody>
-            ${rows.map((row) => renderer.tablerow({ text: row.map((td) => renderer.tablecell(td)).join("") })).join("") }
+            ${rows.map((row) => renderer.tablerow({ text: row.map((td) => renderer.tablecell(td)).join("") })).join("")}
             </tbody>
-        </table>`
+        </table>
+        </div>`
     },
 
     tablerow({ text }: Tokens.TableRow): string {
         return `<tr class="border-collapse border border-neutral-600 text-left">
-        ${ text }
+        ${text}
         </tr>`
     },
 
-    tablecell({ tokens, header }: Tokens.TableCell): string {;
+    tablecell({ tokens, header }: Tokens.TableCell): string {
+        ;
         const text = tokens.map(token => token.raw).join("");
         const tag = header ? "th" : "td";
         return `<${tag} class="border-collapse border border-neutral-600 px-2 py-1 text-left">
