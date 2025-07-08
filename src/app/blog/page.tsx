@@ -1,8 +1,7 @@
 import BlogPostItem from "@/components/BlogPostItem";
 import BlogPostList from "@/components/BlogPostList";
 import SearchArticles from "@/components/SearchArticles";
-import siteConfig from "@/lib/site.config";
-import { JSX, useState } from "react";
+import { JSX } from "react";
 
 
 export default function BlogView(): JSX.Element {
