@@ -19,7 +19,7 @@ export default function BlogPostItem({
                 style={{ backgroundImage: `url('${thumbnail}')` }}
             ></div>
             <div className="flex flex-col gap-2 flex-1">
-                <h3 className="text-xl">{ title }</h3>
+                <h3 className="text-xl line-clamp-1">{ title }</h3>
                 <p className="text-neutral-400 line-clamp-3 max-w-2xl">{ preview }</p>
             </div>
         </Link>
