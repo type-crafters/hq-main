@@ -1,4 +1,3 @@
-import BlogPostItem from "@/components/BlogPostItem";
 import BlogPostList from "@/components/BlogPostList";
 import FeaturedBlogPostList from "@/components/FeaturedBlogPostList";
 import SearchArticles from "@/components/SearchArticles";
