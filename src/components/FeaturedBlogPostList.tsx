@@ -27,7 +27,8 @@ export default function FeaturedBlogPostList(): JSX.Element {
                 setLoading(false);
             }
         })();
-    }, [])
+    }, []);
+    
     return (
         <>
             {loading ? (
