@@ -26,10 +26,7 @@ export default function BlogPost({ post }: BlogPostProps): JSX.Element {
 
     return (
         <div className="w-full flex">
-
-            <aside
-                className="flex-1 hidden md:flex flex-col gap-4 px-4 py-6 sticky top-12 bg-inherit h-full max-h-[80vh]"
-            >
+            <aside className="flex-1 hidden md:flex flex-col gap-4 px-4 py-6 sticky top-12 bg-inherit h-full max-h-[80vh]">
                 <nav className="flex flex-col gap-6 overflow-y-auto">
                     <h2 className="text-lg font-medium">In this article</h2>
                     <ul className="flex flex-col gap-2">
@@ -55,7 +52,6 @@ export default function BlogPost({ post }: BlogPostProps): JSX.Element {
             </main>
             <section className="flex-1 w-full hidden 2xl:flex"></section>
         </div>
-
     );
 }
 

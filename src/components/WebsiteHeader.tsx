@@ -38,19 +38,19 @@ export default function WebsiteHeader(): JSX.Element {
                 </div>
                 <menu id="header-links" className="flex flex-col lg:flex-row items-center gap-4">
                     <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
-                        <Link href="/games">Games</Link>
+                        <Link href="/games" onClick={() => setDisplayNavbar(false)}>Games</Link>
                     </li>
                     <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
-                        <Link href="/blog">Blog</Link>
+                        <Link href="/blog" onClick={() => setDisplayNavbar(false)}>Blog</Link>
                     </li>
                     <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
-                        <Link href="/shop">Shop</Link>
+                        <Link href="/shop" onClick={() => setDisplayNavbar(false)}>Shop</Link>
                     </li>
                     <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
-                        <Link href="/team">Our Team</Link>
+                        <Link href="/team" onClick={() => setDisplayNavbar(false)}>Our Team</Link>
                     </li>
                     <li className="py-1 border-b-2 border-transparent hover:border-neutral-200 duration-200">
-                        <Link href="/contact">Contact us</Link>
+                        <Link href="/contact" onClick={() => setDisplayNavbar(false)}>Contact us</Link>
                     </li>
                 </menu>
                 <menu id="header-socials" className="flex flex-col lg:flex-row items-center gap-8">

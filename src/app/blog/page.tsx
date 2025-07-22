@@ -1,5 +1,5 @@
-import BlogPostItem from "@/components/BlogPostItem";
 import BlogPostList from "@/components/BlogPostList";
+import FeaturedBlogPostList from "@/components/FeaturedBlogPostList";
 import SearchArticles from "@/components/SearchArticles";
 import { JSX } from "react";
 
@@ -15,10 +15,7 @@ export default function BlogView(): JSX.Element {
                     id="featured-article-gallery"
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8 w-full"
                 >
-                    <BlogPostItem />
-                    <BlogPostItem />
-                    <BlogPostItem />
-                    <BlogPostItem />
+                    <FeaturedBlogPostList />
                 </section>
                 <h2 className="text-2xl font-semibold">Latest Posts</h2>
                 <BlogPostList />

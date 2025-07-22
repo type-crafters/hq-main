@@ -43,9 +43,7 @@ export default function BlogPostList(): JSX.Element {
         const start = (current - 1) * siteConfig.blog.paginationLimit;
         return blogposts.slice(start, start + siteConfig.blog.paginationLimit);
     }, [blogposts, current]);
-
-
-
+    
     return (
         <>
             <section id="article-grid" className="grid w-full gap-y-8 duration-300">

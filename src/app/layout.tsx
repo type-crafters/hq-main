@@ -3,6 +3,7 @@ import "./index.css";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 import WebsiteHeader from "@components/WebsiteHeader";
 import WebsiteFooter from "@components/WebsiteFooter";
+import VisitTracker from "@/components/VisitTracker";
 
 export default function RootLayout({
     children
@@ -16,6 +17,7 @@ export default function RootLayout({
                 <WebsiteHeader />
                 { children }
                 <WebsiteFooter />
+                <VisitTracker />
             </body>
         </html>
     );
