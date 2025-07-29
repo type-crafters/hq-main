@@ -18,7 +18,7 @@ const renderer = {
 
     link({ href, title, tokens }: Tokens.Link): string {
         const text = tokens.map(token => token.raw).join("");
-        return `<a href="${href}" title="${title || ""}" class="text-blue-400 hover:underline cursor-pointer">${marked.parse.parseInline(text)}</a>`
+        return `<a href="${href}" title="${title || ""}" class="text-blue-400 hover:underline cursor-pointer" target="_blank">${marked.parse.parseInline(text)}</a>`
     },
 
     code({ lang, text }: Tokens.Code): string {
