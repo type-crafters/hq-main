@@ -1,7 +1,5 @@
 import { marked, type Tokens } from "marked";
-import DOMPurify from "dompurify";
 
-// Custom renderer using marked v5+ extension format
 const renderer = {
     heading({ depth, tokens }: Tokens.Heading): string {
         const text = tokens.map(token => token.raw).join("");

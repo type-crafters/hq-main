@@ -1,9 +1,15 @@
 import { JSX, ReactNode } from "react";
+import { Metadata } from "next";
 import "./index.css";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 import WebsiteHeader from "@components/WebsiteHeader";
 import WebsiteFooter from "@components/WebsiteFooter";
 import VisitTracker from "@/components/VisitTracker";
+
+export const metadata: Metadata = {
+    title: "Home | TypeCrafters HQ",
+    description: "Meet the team behind the magic."
+}
 
 export default function RootLayout({
     children
