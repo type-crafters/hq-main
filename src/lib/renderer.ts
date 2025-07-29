@@ -25,7 +25,7 @@ const renderer = {
         const id = crypto.randomUUID();
         return `<div class="p-1 bg-neutral-700 text-[16px]">
         <div class="flex items-center justify-between py-2">
-            <span class="px-1">csharp</span>
+            <span class="px-1">${lang}</span>
             <button class="flex items-center gap-2 px-1 rounded hover:bg-neutral-600 active:bg-neutral-700 duration-150 cursor-pointer"
                 onclick="navigator.clipboard.writeText(document.getElementById('${id}').innerHTML)"
             >
