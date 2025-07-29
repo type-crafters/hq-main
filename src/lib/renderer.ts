@@ -73,12 +73,19 @@ const renderer = {
     },
 
     tablecell({ tokens, header }: Tokens.TableCell): string {
-        ;
         const text = tokens.map(token => token.raw).join("");
         const tag = header ? "th" : "td";
         return `<${tag} class="border-collapse border border-neutral-600 px-2 py-1 text-left">
             ${marked.parse.parseInline(text)}
         </${tag}>`;
+    },
+
+    blockquote({ tokens }: Tokens.Blockquote): string {
+        const text = tokens.map((token) => token.raw).join("");
+        return `<blockquote class="rounded-lg overflow-hidden bg-base-100 flex items-stretch">
+        <div class="w-1.5 bg-blue-600"></div>
+        <div class="flex-1 px-4 py-2"><p class="opacity-80">${marked.parse.parseInline(text)}</p></div>
+        </blockquote>`
     }
 };
 
